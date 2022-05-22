@@ -1,0 +1,156 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 21 Bulan Mei 2022 pada 04.47
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.5
+
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: "klinik_312010068"
+--
+CREATE DATABASE IF NOT EXISTS "klinik_312010068" DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE klinik_312010040;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "berobat"
+--
+
+DROP TABLE IF EXISTS `berobat`;
+CREATE TABLE "berobat" ;
+
+--
+-- Dumping data untuk tabel "berobat"
+--
+
+SET IDENTITY_INSERT "berobat" ON ;
+INSERT INTO "berobat" ("id_berobat", "id_pasien", "id_dokter", "tgl_berobat", "keluhan_pasien", "hasil_diagnosa", "penatalaksanaan") VALUES
+(2221, 11, 1011, '2022-04-21', 'sakit tenggorokan, demam, panas, 'Covid', 'lainnya'),
+(2222, 12, 1012, '2022-04-21', 'sakit kaki', 'Diabetes', 'lainnya'),
+(2223, 13, 1013, '2022-04-21', 'demam, panas, pusing', 'DBD', 'lainnya'),
+(2224, 14, 1014, '2022-04-21', 'sakit perut', 'Diare', 'lainnya'),
+(2225, 15, 1015, '2022-04-21', 'sakit perut, magh', 'Asam Lambung', 'lainnya');
+
+SET IDENTITY_INSERT "berobat" OFF;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "dokter"
+--
+
+DROP TABLE IF EXISTS `dokter`;
+CREATE TABLE "dokter" ;
+
+--
+-- Dumping data untuk tabel "dokter"
+--
+
+SET IDENTITY_INSERT "dokter" ON ;
+INSERT INTO "dokter" ("id_dokter", "nama_dokter") VALUES
+(1011, 'YooJi'),
+(1012, 'GiiHo'),
+(1013, 'Yimoo'),
+(1014, 'MinLe'),
+(1015, 'LeJin');
+
+SET IDENTITY_INSERT "dokter" OFF;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "obat"
+--
+
+DROP TABLE IF EXISTS `obat`;
+CREATE TABLE "obat" ;
+
+--
+-- Dumping data untuk tabel "obat"
+--
+
+SET IDENTITY_INSERT "obat" ON ;
+INSERT INTO "obat" ("id_obat", "nama_obat") VALUES
+(1111, 'Amoxillin'),
+(1112, 'Antasida'),
+(1113, 'Costrimoxazole'),
+(1114, 'Dextropen'),
+(1115, 'Erytromycin'),
+
+SET IDENTITY_INSERT "obat" OFF;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "pasien"
+--
+
+DROP TABLE IF EXISTS `pasien`;
+CREATE TABLE "pasien" ;
+
+--
+-- Dumping data untuk tabel "pasien"
+--
+
+SET IDENTITY_INSERT "pasien" ON ;
+INSERT INTO "pasien" ("id_pasien", "nama_pasien", "jenis_kelamin", "umur") VALUES
+(11, 'Komar', 'L', 24),
+(12, 'Risma', 'P', 15),
+(13, 'Irna', 'P', 10),
+(14, 'Pudin', 'L', 7),
+(15, 'Rafi', 'L', 7);
+
+SET IDENTITY_INSERT "pasien" OFF;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "resep_obat"
+--
+
+DROP TABLE IF EXISTS `resep_obat`;
+CREATE TABLE "resep_obat" ;
+
+--
+-- Dumping data untuk tabel "resep_obat"
+--
+
+SET IDENTITY_INSERT "resep_obat" ON ;
+INSERT INTO "resep_obat" ("id_resep", "id_berobat", "id_obat") VALUES
+(3331, 2221, 1111),
+(3332, 2222, 1112),
+(3333, 2223, 1113),
+(3334, 2224, 1114),
+(3335, 2225, 1115);
+
+SET IDENTITY_INSERT "resep_obat" OFF;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel "user"
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE "user" ;
+
+--
+-- Dumping data untuk tabel "user"
+--
+
+SET IDENTITY_INSERT "user" ON ;
+INSERT INTO "user" ("id", "username", "password", "nama_lengkap") VALUES
+(1211, 'adminklinik1', '1211', 'Komarudin'),
+(1212, 'adminklinik2', '1212', 'Risma Yulia'),
+(1213, 'adminklinik3', '1213', 'Irna Nirmala'),
+(1214, 'adminklinik4', '1214', 'Mahpudin'),
+(1215, 'adminklinik5', '1215', 'Rafi Saputra');
+
+SET IDENTITY_INSERT "user" OFF;
+COMMIT;
